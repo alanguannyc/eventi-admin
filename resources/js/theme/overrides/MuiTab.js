@@ -14,8 +14,8 @@ export default {
       fontWeight: 500
     }
   },
-  label: {},
-  labelContainer: {},
+  // label: {},
+  // labelContainer: {},
   textColorPrimary: {
     color: palette.text.secondary
   }

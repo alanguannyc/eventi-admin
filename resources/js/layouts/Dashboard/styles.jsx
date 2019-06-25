@@ -1,4 +1,8 @@
 export default theme => ({
+  root: {
+   
+    minHeight: '100vh',
+  },
   topbar: {
     position: 'fixed',
     width: '100%',
@@ -23,6 +27,9 @@ export default theme => ({
   },
   content: {
     marginTop: '64px',
+    minHeight: '100vh',
+    display: 'flex',
+    flexDirection: 'column',
     backgroundColor: theme.palette.background.default,
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.sharp,

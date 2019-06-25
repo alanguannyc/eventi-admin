@@ -5,8 +5,8 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import Dashboard from './views/Dashboard';
 
 import UserList from './views/UserList';
-
-
+import EventsList from './views/EventsList';
+import EventView from './views/Event';
 import Account from './views/Account';
 import Settings from './views/Settings';
 import SignUp from './views/SignUp';
@@ -23,6 +23,7 @@ export default class Routes extends Component {
           from="/"
           to="/dashboard"
         />
+
         <Route
           component={Dashboard}
           exact
@@ -33,8 +34,16 @@ export default class Routes extends Component {
           exact
           path="/users"
         />
-
-
+        <Route
+          component={EventsList}
+          exact
+          path="/events"
+        />
+        <Route
+          component={EventView}
+          exact
+          path="/event/:id"
+        />
 
         <Route
           component={Account}

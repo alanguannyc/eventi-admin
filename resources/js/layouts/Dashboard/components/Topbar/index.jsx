@@ -30,7 +30,7 @@ import {
 // import { getNotifications } from './services/notification';
 
 // Custom components
-import { NotificationList } from './components';
+// import { NotificationList } from './components';
 
 // Component styles
 import styles from './styles';
@@ -109,13 +109,7 @@ class Topbar extends Component {
               className={classes.notificationsButton}
               onClick={this.handleShowNotifications}
             >
-              <Badge
-                badgeContent={notificationsCount}
-                color="primary"
-                variant="dot"
-              >
-                <NotificationsIcon />
-              </Badge>
+             
             </IconButton>
             <IconButton
               className={classes.signOutButton}
@@ -125,24 +119,7 @@ class Topbar extends Component {
             </IconButton>
           </Toolbar>
         </div>
-        <Popover
-          anchorEl={notificationsEl}
-          anchorOrigin={{
-            vertical: 'bottom',
-            horizontal: 'center'
-          }}
-          onClose={this.handleCloseNotifications}
-          open={showNotifications}
-          transformOrigin={{
-            vertical: 'top',
-            horizontal: 'center'
-          }}
-        >
-          <NotificationList
-            notifications={notifications}
-            onSelect={this.handleCloseNotifications}
-          />
-        </Popover>
+        
       </Fragment>
     );
   }

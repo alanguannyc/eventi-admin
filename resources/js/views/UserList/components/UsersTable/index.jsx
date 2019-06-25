@@ -139,13 +139,13 @@ class UsersTable extends Component {
     return (
       <Portlet className={rootClassName}>
         <PortletContent noPadding>
-          <PerfectScrollbar>
+
             <MUIDataTable
             data={this.state.data}
             columns={this.state.columns}
             options={options}
             />
-          </PerfectScrollbar>
+
 
         </PortletContent>
       </Portlet>

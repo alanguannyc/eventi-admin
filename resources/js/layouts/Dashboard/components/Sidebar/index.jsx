@@ -42,6 +42,8 @@ class Sidebar extends Component {
 
     const rootClassName = classNames(classes.root, className);
 
+    const AdapterLink = React.forwardRef((props, ref) => <NavLink innerRef={ref} {...props} />);
+
     return (
       <nav className={rootClassName}>
         <div className={classes.logoWrapper}>
@@ -49,33 +51,23 @@ class Sidebar extends Component {
             className={classes.logoLink}
             to="/"
           >
-            <img
-              alt="Brainalytica logo"
-              className={classes.logoImage}
-              src="/images/logos/brainalytica_logo.svg"
-            />
           </Link>
         </div>
         <Divider className={classes.logoDivider} />
         <div className={classes.profile}>
-          <Link to="/account">
-            <Avatar
-              alt="Roman Kutepov"
-              className={classes.avatar}
-              src="/images/avatars/avatar_1.png"
-            />
+          <Link to="/account" component={AdapterLink}>
           </Link>
           <Typography
             className={classes.nameText}
             variant="h6"
           >
-            Roman Kutepov
+            Eventi Admin
           </Typography>
           <Typography
             className={classes.bioText}
             variant="caption"
           >
-            Brain Director
+            Alan
           </Typography>
         </div>
         <Divider className={classes.profileDivider} />
@@ -86,7 +78,8 @@ class Sidebar extends Component {
           <ListItem
             activeClassName={classes.activeListItem}
             className={classes.listItem}
-            component={NavLink}
+            component={AdapterLink}
+            
             to="/dashboard"
           >
             <ListItemIcon className={classes.listItemIcon}>
@@ -96,7 +89,11 @@ class Sidebar extends Component {
               classes={{ primary: classes.listItemText }}
               primary="Dashboard"
             />
+
+          
+ 
           </ListItem>
+          {/*
           <ListItem
             activeClassName={classes.activeListItem}
             className={classes.listItem}
@@ -115,14 +112,14 @@ class Sidebar extends Component {
             activeClassName={classes.activeListItem}
             className={classes.listItem}
             component={NavLink}
-            to="/products"
+            to="/events"
           >
             <ListItemIcon className={classes.listItemIcon}>
               <ShoppingBasketIcon />
             </ListItemIcon>
             <ListItemText
               classes={{ primary: classes.listItemText }}
-              primary="Products"
+              primary="Events"
             />
           </ListItem>
           <ListItem
@@ -143,30 +140,17 @@ class Sidebar extends Component {
             activeClassName={classes.activeListItem}
             className={classes.listItem}
             component={NavLink}
-            to="/typography"
+            to="/hotels"
           >
             <ListItemIcon className={classes.listItemIcon}>
               <TextFieldsIcon />
             </ListItemIcon>
             <ListItemText
               classes={{ primary: classes.listItemText }}
-              primary="Typography"
+              primary="Hotel"
             />
           </ListItem>
-          <ListItem
-            activeClassName={classes.activeListItem}
-            className={classes.listItem}
-            component={NavLink}
-            to="/icons"
-          >
-            <ListItemIcon className={classes.listItemIcon}>
-              <ImageIcon />
-            </ListItemIcon>
-            <ListItemText
-              classes={{ primary: classes.listItemText }}
-              primary="Icons and Images"
-            />
-          </ListItem>
+          
           <ListItem
             activeClassName={classes.activeListItem}
             className={classes.listItem}
@@ -195,31 +179,8 @@ class Sidebar extends Component {
               primary="Settings"
             />
           </ListItem>
-        </List>
-        <Divider className={classes.listDivider} />
-        <List
-          component="div"
-          disablePadding
-          subheader={
-            <ListSubheader className={classes.listSubheader}>
-              Support
-            </ListSubheader>
-          }
-        >
-          <ListItem
-            className={classes.listItem}
-            component="a"
-            href="https://devias.io/contact-us"
-            target="_blank"
-          >
-            <ListItemIcon className={classes.listItemIcon}>
-              <InfoIcon />
-            </ListItemIcon>
-            <ListItemText
-              classes={{ primary: classes.listItemText }}
-              primary="Customer support"
-            />
-          </ListItem>
+
+          */}
         </List>
       </nav>
     );
