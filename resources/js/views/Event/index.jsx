@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-
+import { BrowserRouter, Route, Redirect, Switch, Link, Router } from "react-router-dom";
+import { createBrowserHistory } from 'history';
 // Externals
 import PropTypes from 'prop-types';
 
@@ -26,15 +26,33 @@ import { EventViewTemplate as EventViewTemplate } from '../../layouts';
 
 
 // Custom components
-import { EventToolBar } from './components';
+import { EventToolBar, EventAttendees } from './components';
+
+import { EventDetails } from './components/EventDetails'
 
 // Component styles
 import styles from './styles';
 
+
+const browserHistory = createBrowserHistory({
+  basename: '/admin/event/2',
+  hashType: 'slash'
+});
+
+
+
+
 class EventView extends Component {
-
-
+  
+  changeTabsByURL(value){
+    this.setState({
+      tab:value
+    })
+  }
+  
   state = {
+    tab: '',
+    id: 1,
     isLoading: false,
     limit: 6,
     products: [],
@@ -42,24 +60,46 @@ class EventView extends Component {
     error: null
   };
 
+  componentDidMount(){
+    const {url} = this.props.match
+    const {id} = this.state;
+    if(url == '/event/' + id + '/details'){
+      var tab = 0
+    } else if( url == '/event/' + id + '/attendees') {
+      var tab = 1
+    } else {
+      var tab = 2
+    }
+    
+    this.changeTabsByURL(tab)
+  }
+
+
+  
+
   
 
   render() {
     const { classes } = this.props;
-    const eventDetails = 
-      <Typography variant="h2" color="inherit" className={classes.title}>
-        Event Detail
-      </Typography>
-
+    const {id} = this.state;
 
     return (
       <EventViewTemplate >
         <div className={classes.root}>
-        <EventToolBar
-        EventDetails={eventDetails} />
         
-
-
+        <BrowserRouter basename={'/admin/event/'+id }>
+       
+            
+                <EventToolBar
+                    changeTab={this.changeTabsByURL.bind(this)}
+                    tab={this.state.tab}
+                    EventDetails={EventDetails}
+                    EventAttendees={EventAttendees}
+                    EventSettings={EventAttendees}
+                    />
+               
+               
+          </BrowserRouter>
         </div>
       </EventViewTemplate>
     );

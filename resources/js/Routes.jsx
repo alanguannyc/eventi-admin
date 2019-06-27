@@ -42,7 +42,7 @@ export default class Routes extends Component {
         <Route
           component={EventView}
           exact
-          path="/event/:id"
+          path="/event/*"
         />
 
         <Route
