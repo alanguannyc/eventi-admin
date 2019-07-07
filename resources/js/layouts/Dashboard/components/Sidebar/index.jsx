@@ -79,7 +79,7 @@ class Sidebar extends Component {
             activeClassName={classes.activeListItem}
             className={classes.listItem}
             component={AdapterLink}
-            
+
             to="/dashboard"
           >
             <ListItemIcon className={classes.listItemIcon}>
@@ -90,10 +90,10 @@ class Sidebar extends Component {
               primary="Dashboard"
             />
 
-          
- 
+
+
           </ListItem>
-          {/*
+
           <ListItem
             activeClassName={classes.activeListItem}
             className={classes.listItem}
@@ -150,7 +150,7 @@ class Sidebar extends Component {
               primary="Hotel"
             />
           </ListItem>
-          
+
           <ListItem
             activeClassName={classes.activeListItem}
             className={classes.listItem}
@@ -180,7 +180,7 @@ class Sidebar extends Component {
             />
           </ListItem>
 
-          */}
+
         </List>
       </nav>
     );

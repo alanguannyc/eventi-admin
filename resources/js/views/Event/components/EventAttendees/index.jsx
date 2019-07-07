@@ -25,7 +25,7 @@ class EventAttendees extends Component {
       }
 
 
-    
+
     render() {
 
         const { classes } = this.props
@@ -79,7 +79,7 @@ class EventAttendees extends Component {
                 />
                 </PortletContent>
             </Portlet>
-                
+
             </div>
         )
     }

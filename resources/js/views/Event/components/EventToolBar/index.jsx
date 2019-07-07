@@ -6,7 +6,7 @@ import styles from './styles'
 
 
 class EventToolBar extends Component {
- 
+
     constructor(props) {
         super(props)
         this.state = {
@@ -26,7 +26,7 @@ class EventToolBar extends Component {
 
         return (
             <div>
-            
+
             <Paper square className={classes.root}>
                 <AppBar position="static">
                     <Tabs value={this.props.tab} onChange={this.handleChange}>
@@ -39,13 +39,13 @@ class EventToolBar extends Component {
                         <Switch >
                         <Route path={`/details`} exact component={this.props.EventDetails} />
                         <Route path={`/attendees`} component={this.props.EventAttendees} />
-                        <Route path={`/settings`} component={this.props.Settings} />
+                        <Route path={`/settings`} component={this.props.EventSettings} />
                         <Redirect from='/' to='/details' />
                     </Switch>
             </Paper>
-            
+
           </div>
-            
+
         )
     }
 }

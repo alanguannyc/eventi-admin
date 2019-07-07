@@ -9,10 +9,8 @@ import { withStyles } from '@material-ui/core';
 
 // Material components
 import {
-  IconButton,
-  CircularProgress,
-  Grid,
-  Typography
+  Button,Divider
+
 } from '@material-ui/core';
 
 // Material icons
@@ -26,7 +24,7 @@ import { EventViewTemplate as EventViewTemplate } from '../../layouts';
 
 
 // Custom components
-import { EventToolBar, EventAttendees } from './components';
+import { EventToolBar, EventAttendees, EventSettings } from './components';
 
 import { EventDetails } from './components/EventDetails'
 
@@ -43,22 +41,32 @@ const browserHistory = createBrowserHistory({
 
 
 class EventView extends Component {
-  
+
   changeTabsByURL(value){
     this.setState({
       tab:value
     })
   }
-  
-  state = {
-    tab: '',
-    id: 1,
-    isLoading: false,
-    limit: 6,
-    products: [],
-    productsTotal: 0,
-    error: null
-  };
+
+  constructor(props){
+      super(props)
+      this.routeChange = this.routeChange.bind(this);
+      this.state = {
+        tab: '',
+        id: 1,
+        isLoading: false,
+        limit: 6,
+        products: [],
+        productsTotal: 0,
+        error: null
+      };
+  }
+
+  routeChange() {
+    let path = '/';
+    this.props.history.push(path);
+  }
+
 
   componentDidMount(){
     const {url} = this.props.match
@@ -70,14 +78,14 @@ class EventView extends Component {
     } else {
       var tab = 2
     }
-    
+
     this.changeTabsByURL(tab)
   }
 
 
-  
 
-  
+
+
 
   render() {
     const { classes } = this.props;
@@ -86,19 +94,23 @@ class EventView extends Component {
     return (
       <EventViewTemplate >
         <div className={classes.root}>
-        
+        <Button color="primary" className={classes.button} onClick={this.routeChange}>
+        Back to Dashboard
+        </Button>
+        <Divider />
+        <br />
         <BrowserRouter basename={'/admin/event/'+id }>
-       
-            
+
+
                 <EventToolBar
                     changeTab={this.changeTabsByURL.bind(this)}
                     tab={this.state.tab}
                     EventDetails={EventDetails}
                     EventAttendees={EventAttendees}
-                    EventSettings={EventAttendees}
+                    EventSettings={EventSettings}
                     />
-               
-               
+
+
           </BrowserRouter>
         </div>
       </EventViewTemplate>
