@@ -39,7 +39,7 @@
         "react-router": "^5.0.1",
         "react-router-dom": "^5.0.1",
         "recompose": "^0.30.0",
-        "underscore": "^1.9.1",
+        "underscore": "^1.12.1",
         "validate": "^4.5.1",
         "validate.js": "^0.13.1"
     }
